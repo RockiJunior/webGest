@@ -68,7 +68,7 @@ psicoModel(sequelize);
 condIvaModel(sequelize);
 
 const {
-	producto,
+	productos,
 	clientes,
 	usuarios,
 	rubro,
@@ -82,13 +82,13 @@ const {
 } = sequelize.models;
 
 // ------ Producto ------ //
-producto.belongsTo(rubro);
-producto.belongsTo(linea);
-producto.belongsTo(proveedores);
-producto.belongsTo(unidadMedida);
-producto.belongsTo(laboratorio);
-producto.belongsTo(monodroga);
-producto.belongsTo(psico);
+productos.belongsTo(rubro);
+productos.belongsTo(linea);
+productos.belongsTo(proveedores);
+productos.belongsTo(unidadMedida);
+productos.belongsTo(laboratorio);
+productos.belongsTo(monodroga);
+productos.belongsTo(psico);
 
 // ------ Clientes ------ //
 clientes.belongsTo(condIva);

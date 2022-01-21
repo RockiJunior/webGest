@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
 	return sequelize.define(
-		'producto',
+		'productos',
 		{
 			id: {
 				type: DataTypes.BIGINT, // 64 bit integer

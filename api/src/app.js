@@ -22,7 +22,7 @@ server.use(errorHandler);
 
 //routes
 
-// server.use("/api", routes);
+server.use("/api", routes);
 
 
 module.exports = server;
