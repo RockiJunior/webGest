@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, UUID } = require('sequelize');
 
 module.exports = (sequelize) => {
 	return sequelize.define(
@@ -6,10 +6,14 @@ module.exports = (sequelize) => {
 		{
 			id: {
 				type: DataTypes.BIGINT, // 64 bit integer
-				autoIncrement: true, // automatically incrementing primary key
-				primaryKey: true // primary key
+				primaryKey: true,
+				autoIncrement: true,
+				allowNull: false,
 			},
 			nombre: {
+				type: DataTypes.STRING // varchar(255)
+			},
+			clave: {
 				type: DataTypes.STRING // varchar(255)
 			},
 			direccion: {
@@ -41,7 +45,10 @@ module.exports = (sequelize) => {
 			},
 			listaDePrecios: {
 				type: DataTypes.STRING // varchar(255)
-			}
+			},
+			permisos: {
+				type: DataTypes.ENUM('admin','cliente','vendedor','invitado')
+			},
 		},
 		{
 			timestamps: true,

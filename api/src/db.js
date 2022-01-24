@@ -4,7 +4,6 @@ const { Sequelize } = require('sequelize');
 // Principal Models...
 const productoModel = require('./models/01-principalModels/products.js');
 const clientesModel = require('./models/01-principalModels/clients.js');
-const usuariosModel = require('./models/01-principalModels/users.js');
 
 
 // Product Subtables...
@@ -19,7 +18,6 @@ const psicoModel = require('./models/02-productSubTables/psycho.js');
 // Client Subtables...
 const condIvaModel = require('./models/03-clientsSubTables/ivaCond.js');
 
-//User Subtables...??
 
 const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST } = process.env;
 
@@ -53,7 +51,6 @@ let sequelize =
 // principal models...
 productoModel(sequelize);
 clientesModel(sequelize);
-usuariosModel(sequelize);
 
 // product sub tables...
 rubroModel(sequelize);
@@ -70,7 +67,6 @@ condIvaModel(sequelize);
 const {
 	productos,
 	clientes,
-	usuarios,
 	rubro,
 	linea,
 	proveedores,
@@ -93,8 +89,6 @@ productos.belongsTo(psico);
 // ------ Clientes ------ //
 clientes.belongsTo(condIva);
 
-// ------ Usuarios ------ //
-usuarios.belongsTo(clientes);
 
 module.exports = {
 	conn: sequelize,

@@ -3,6 +3,7 @@ const { clientes } = require('../../db.js');
 const createClient = async (req, res, next) => {
 	let {
 		nombre,
+		clave,
 		direccion,
 		codPostal,
 		telefono,
@@ -12,11 +13,13 @@ const createClient = async (req, res, next) => {
 		saldo,
 		nroIngresosBrutos,
 		CtaCte,
-		listaDePrecios
+		listaDePrecios,
+		permisos
 	} = req.body;
 	
 	const createClient = await clientes.create({
 		nombre,
+		clave,
 		direccion,
 		codPostal,
 		telefono,
@@ -26,7 +29,8 @@ const createClient = async (req, res, next) => {
 		saldo,
 		nroIngresosBrutos,
 		CtaCte,
-		listaDePrecios
+		listaDePrecios,
+		permisos
 	});
 	
 	try {
