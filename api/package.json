@@ -19,6 +19,7 @@
     "sequelize": "^6.13.0"
   },
   "devDependencies": {
+    "husky": "^7.0.4",
     "nodemon": "^2.0.15"
   }
 }
