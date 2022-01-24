@@ -5,7 +5,7 @@ const modifyClientById = async (req, res) => {
 	let data = req.body;
 
 	try {
-		const client = await clientes.update(data, {
+		 await clientes.update(data, {
 			where: {
 				id: id
 			}
