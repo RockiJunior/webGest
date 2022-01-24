@@ -1,4 +1,4 @@
-const { clientes } = require('../../db.js');
+const { clientes, condIva } = require('../../db.js');
 
 const createClient = async (req, res, next) => {
 	let {
@@ -14,9 +14,11 @@ const createClient = async (req, res, next) => {
 		nroIngresosBrutos,
 		CtaCte,
 		listaDePrecios,
-		permisos
+		permisos, 
+		condIvaId
 	} = req.body;
-	
+
+
 	const createClient = await clientes.create({
 		nombre,
 		clave,
@@ -30,7 +32,8 @@ const createClient = async (req, res, next) => {
 		nroIngresosBrutos,
 		CtaCte,
 		listaDePrecios,
-		permisos
+		permisos,
+		condIvaId
 	});
 	
 	try {

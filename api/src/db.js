@@ -89,7 +89,6 @@ productos.belongsTo(psico);
 // ------ Clientes ------ //
 clientes.belongsTo(condIva);
 
-
 module.exports = {
 	conn: sequelize,
 	...sequelize.models
