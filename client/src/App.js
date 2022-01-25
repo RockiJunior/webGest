@@ -1,9 +1,11 @@
-import './App.css';
+import Navbar from './components/navbar/navbar.jsx';
 
 function App() {
   return (
-    <div className="App">
+    <div >
       <h1>HOLA FRAN</h1>
+      <Navbar />
+      {/* <button type="button" class="btn btn-primary">Primary</button> */}
     </div>
   );
 }
