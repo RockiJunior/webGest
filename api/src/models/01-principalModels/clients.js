@@ -47,7 +47,7 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING // varchar(255)
 			},
 			permisos: {
-				type: DataTypes.ENUM('admin','cliente','vendedor','invitado')
+				type: DataTypes.ENUM('admin','cliente','vendedor')
 			},
 		},
 		{
