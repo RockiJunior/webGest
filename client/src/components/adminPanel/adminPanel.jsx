@@ -1,7 +1,11 @@
 import React from 'react';
 
-const adminPanel = () => {
-  return <div></div>;
+const AdminPanel = () => {
+  return(
+    <div>
+      HOLA SOY EL ADMIN PANEL
+    </div>
+  );
 };
 
-export default adminPanel;
+export default AdminPanel;
