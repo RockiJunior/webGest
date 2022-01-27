@@ -1,12 +1,15 @@
 const express = require("express");
+const server = express();
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const corsc = require("cors");
+
+
 const routes = require("./routes");
 const { errorHandler } = require("./config/errorHandler");
-
 const cors = require("./config/cors");
-const server = express();
+
+
 
 server.set("view engine", "ejs");
 server.set("views", __dirname + "/views");

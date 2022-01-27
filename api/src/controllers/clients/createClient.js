@@ -18,7 +18,6 @@ const createClient = async (req, res, next) => {
 		condIvaId
 	} = req.body;
 
-
 	const createClient = await clientes.create({
 		nombre,
 		clave,

@@ -1,15 +1,30 @@
-.LogIn{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 100px;
-}
-
-.input{
-   margin: 10px;
-}
-
-.inputs{
+.LogIn {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	background-image: url(./../../../public/img/bg-img-login.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 100vw;
+	height: 100vh;
+}
+
+.containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+}
+
+.inputLogin {
+	text-align: center;
+	margin: 5px;
+}
+
+.containerInput {
+	display: flex;
+	flex-direction: column;
 }
