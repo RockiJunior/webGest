@@ -161,4 +161,4 @@ const clientsData = [
 	}
 ];
 
-module.exports = {clientsData};
+module.exports = { clientsData };
