@@ -1,13 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { clientsData } = require('../../utils/mocks/clients/clientsMock.js');
 
-// const { clientes } = require('../../db.js');
-
-// const getAllClients = async () => {
-// 	const findClients = await clientes.findAll();
-// 	return findClients;
-// };
-
 const createClientsToken = async (req, res, next) => {
 	try {
 		const arr = [];

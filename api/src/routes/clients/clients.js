@@ -17,6 +17,7 @@ router.get('/:id', getClientById);
 router.get('/:nombre', getClientByName);
 router.post('/create', createClient);
 router.put('/updateClient/:id', modifyClientById);
+
 router.put('/updateClientByName/:nombre', modifyClientByName);
 
 router.post('/createClientsToken', createClientsToken);
