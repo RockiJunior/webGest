@@ -1,8 +1,8 @@
 .LogIn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	background-image: url(./../../../public/img/bg-img-login.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -12,11 +12,11 @@
 }
 
 .containerLogin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 600px;
-    height: 600px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 600px;
+	height: 600px;
 }
 
 .inputLogin {
@@ -28,3 +28,11 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.containerButtons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5px;
+}
+

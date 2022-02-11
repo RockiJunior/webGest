@@ -17,9 +17,8 @@ router.get('/:nombre', getClientByName);
 router.post('/create', createClient);
 router.put('/updateClient/:id', modifyClientById);
 router.put('/updateClientByName/:nombre', modifyClientByName);
-
-router.post('/createClientToken', createClientToken); //singUp
-router.post('/verifyClientToken', tokenAuth,  verifyClientToken); //logIn
+router.post('/signUp', createClientToken); //singUp
+router.post('/signIn', tokenAuth,  verifyClientToken); //logIn
 
 
 module.exports = router;
