@@ -8,4 +8,6 @@ const products = require('../routes/products/products.js');
 app.use('/clients', clients);
 app.use('/products', products);
 
+
+
 module.exports = app;
