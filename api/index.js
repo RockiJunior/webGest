@@ -2,6 +2,10 @@ const server = require('./src/app');
 const { conn } = require('./src/db');
 const port = process.env.PORT || 3001;
 
+const fs = require('fs'); // llamamos al filesystem para utilizarlo en la base
+// de datos de sequelize, y despues poder incorporar un archivo de datos 
+// (.txt/csv) a la base de datos
+
 // tables
 const { condIva, clientes } = require('./src/db.js');
 // Data Tables
@@ -15,6 +19,7 @@ conn
 		force: true
 	})
 	.then(async () => {
+		// fs.copyFile();
 		console.log('DB connected!');
 		server.listen(port, () => console.log(`Server listen in port ${port}`));
 		await createMockUps(condIva, ivaCondData);

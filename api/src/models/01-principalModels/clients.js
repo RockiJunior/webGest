@@ -8,13 +8,13 @@ module.exports = (sequelize) => {
 				type: DataTypes.BIGINT, // 64 bit integer
 				primaryKey: true,
 				autoIncrement: true,
-				allowNull: false,
+				allowNull: true,
 			},
 			nombre: {
 				type: DataTypes.STRING // varchar(255)
 			},
 			clave: {
-				type: DataTypes.STRING // varchar(255)
+				type: DataTypes.STRING(20), // varchar(20)
 			},
 			direccion: {
 				type: DataTypes.STRING // varchar(255)

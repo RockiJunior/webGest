@@ -1,0 +1,3 @@
+grant all privileges on database "webGest" to postgres;
+
+copy clientes from 'C:\Users\GABRIEL\Desktop\Carpeta Personal\proyectosHDC\webGest\api\src\utils\public' using delimiters ',';
