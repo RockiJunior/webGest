@@ -1,3 +1,6 @@
+
+
+
 grant all privileges on database "webGest" to postgres; ----> no funcionó.
 
 

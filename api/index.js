@@ -15,12 +15,15 @@ conn
 		force: true
 	})
 	.then(async () => {
-		// fs.copyFile();
-		console.log('DB connected!');
+		//aqui debe cargarse la informacion de los clientes, productos, etc. pasados al .csv
+		conn
+			.query(
+				"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
+			)
+			.then(() => console.log('user data upload successfully'));
+			console.log('DB connected!');
 		server.listen(port, () => console.log(`Server listen in port ${port}`));
 		await createMockUps(condIva, ivaCondData);
 		await createMockUps(clientes, clientsData);
-		conn.query(
-			'COPY clientes from \'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/pruebaCarga.csv\' DELIMITER \',\' CSV HEADER')
 	})
 	.catch((e) => console.log('connection failed', e));
