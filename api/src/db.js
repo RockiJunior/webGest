@@ -5,7 +5,6 @@ const { Sequelize } = require('sequelize');
 const productoModel = require('./models/01-principalModels/products.js');
 const clientesModel = require('./models/01-principalModels/clients.js');
 
-
 // Product Subtables...
 const rubroModel = require('./models/02-productSubTables/entry.js');
 const lineaModel = require('./models/02-productSubTables/line.js');
@@ -18,10 +17,9 @@ const psicoModel = require('./models/02-productSubTables/psycho.js');
 // Client Subtables...
 const condIvaModel = require('./models/03-clientsSubTables/ivaCond.js');
 
-
 const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST } = process.env;
 
-let sequelize =
+const sequelize =
 	process.env.NODE_ENV === 'production'
 		? new Sequelize({
 				database: DB_NAME,
@@ -88,7 +86,6 @@ productos.belongsTo(psico);
 
 // ------ Clientes ------ //
 clientes.belongsTo(condIva);
-
 
 module.exports = {
 	conn: sequelize,

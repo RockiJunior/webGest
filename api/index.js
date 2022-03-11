@@ -2,10 +2,6 @@ const server = require('./src/app');
 const { conn } = require('./src/db');
 const port = process.env.PORT || 3001;
 
-const fs = require('fs'); // llamamos al filesystem para utilizarlo en la base
-// de datos de sequelize, y despues poder incorporar un archivo de datos 
-// (.txt/csv) a la base de datos
-
 // tables
 const { condIva, clientes } = require('./src/db.js');
 // Data Tables
@@ -24,5 +20,7 @@ conn
 		server.listen(port, () => console.log(`Server listen in port ${port}`));
 		await createMockUps(condIva, ivaCondData);
 		await createMockUps(clientes, clientsData);
+		conn.query(
+			'COPY clientes from \'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/pruebaCarga.csv\' DELIMITER \',\' CSV HEADER')
 	})
 	.catch((e) => console.log('connection failed', e));
