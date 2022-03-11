@@ -1,3 +1,12 @@
-grant all privileges on database "webGest" to postgres;
+grant all privileges on database "webGest" to postgres; ----> no funcionó.
 
-copy clientes from 'C:\Users\GABRIEL\Desktop\Carpeta Personal\proyectosHDC\webGest\api\src\utils\public' using delimiters ',';
+
+Se debería garantizar los privilegios a postgres, para poder ejecutar cambios en windows
+
+
+
+ESTO SI FUNCIONO
+copy clientes from 'C:\Users\GABRIEL\Desktop\Carpeta Personal\proyectosHDC\webGest\api\src\utils\public\pruebaCarga.csv' delimiter ',' csv header;
+
+
+
