@@ -10,6 +10,10 @@ const getAllClients = async (req, res) => {
             message: 'Error al obtener los clientes',
             error
         });
+
+
+
+        
     }
 }
 module.exports = getAllClients;
