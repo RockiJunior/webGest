@@ -4,11 +4,11 @@ const jwt = require('jsonwebtoken');
 const authConfig = require('../../config/auth.js');
 
 const signUp = async (req, res) => {
+	//encriptamos la contraseña extraida del body, mediante la libreria bcrypt
 	let password = bcrypt.hashSync(req.body.clave, authConfig.rounds);
 
 	let {
 		nombre,
-		clave,
 		direccion,
 		codPostal,
 		telefono,
@@ -22,40 +22,43 @@ const signUp = async (req, res) => {
 		permisos,
 		condIvaId
 	} = req.body;
-
-	const clientCreated = await clientes.create({
-		nombre,
-		clave: password,
-		direccion,
-		codPostal,
-		telefono,
-		email,
-		cuit,
-		dni,
-		saldo,
-		nroIngresosBrutos,
-		CtaCte,
-		listaDePrecios,
-		permisos,
-		condIvaId
-	});
-
-	let token = jwt.sign(
-		{
-			user: user
-		},
-		authConfig.secret,
-		{
-			expiresIn: authConfig.expires
-		}
-	);
+	
 	try {
-		res.json({
+		const clientCreated = await clientes.create({
+			nombre,
+			clave: password,
+			direccion,
+			codPostal,
+			telefono,
+			email,
+			cuit,
+			dni,
+			saldo,
+			nroIngresosBrutos,
+			CtaCte,
+			listaDePrecios,
+			permisos,
+			condIvaId
+		});
+		// creamos el token
+		let token = jwt.sign(
+			{
+				user: user
+			},
+			authConfig.secret,
+			{
+				expiresIn: authConfig.expires
+			}
+		);
+
+		res.status(200).json({
 			cliente: clientCreated,
 			token
 		});
 	} catch (err) {
-		console.log(err);
+		res.status(500).json({
+			err
+		});
 	}
 };
 
