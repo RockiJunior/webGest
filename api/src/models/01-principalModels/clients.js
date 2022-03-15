@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING // varchar(255)
 			},
 			clave: {
-				type: DataTypes.STRING(20), // varchar(20)
+				type: DataTypes.STRING, // varchar(255)
 			},
 			direccion: {
 				type: DataTypes.STRING // varchar(255)
@@ -56,3 +56,5 @@ module.exports = (sequelize) => {
 		}
 	);
 };
+
+

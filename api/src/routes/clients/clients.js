@@ -4,19 +4,20 @@ const router = Router();
 const getAllClients = require('../../controllers/clients/getAllClients.js');
 const getClientById = require('../../controllers/clients/getClientById.js');
 const getClientByName = require('../../controllers/clients/getClientByName.js');
-const createClient = require('../../controllers/clients/createClient.js');
 const modifyClientById = require('../../controllers/clients/modifyClientById.js');
 const modifyClientByName = require('../../controllers/clients/modifyClientByName.js');
-const authController = require('../../controllers/clients/authController.js');
+const createClient = require('../../controllers/clients/createClient.js');
+const signIn = require('../../controllers/clients/signIn.js');
 
 router.get('/', getAllClients);
 router.get('/:id', getClientById);
 router.get('/:nombre', getClientByName);
-router.post('/create', createClient);
 router.put('/updateClient/:id', modifyClientById);
 router.put('/updateClientByName/:nombre', modifyClientByName);
 
-router.post('/createClient', authController.signUp)
 
+// Sign Up & Sign In
+router.post('/createClient', createClient);
+router.post('/signIn', signIn);
 
 module.exports = router;

@@ -9,6 +9,8 @@ const { ivaCondData } = require('./src/utils/mocks/ivaCond/ivaCondMock.js');
 const { clientsData } = require('./src/utils/mocks/clients/clientsMock.js');
 // create MockUp Function
 const { createMockUps } = require('./src/utils/mocks/createMockUps.js');
+const {hashClients} = require('./src/utils/mocks/clients/hashClients.js');
+
 
 conn
 	.sync({
@@ -20,10 +22,10 @@ conn
 			.query(
 				"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
 			)
-			.then(() => console.log('user data upload successfully'));
+			.then(() => console.log('client data upload successfully'));
 			console.log('DB connected!');
 		server.listen(port, () => console.log(`Server listen in port ${port}`));
 		await createMockUps(condIva, ivaCondData);
-		await createMockUps(clientes, clientsData);
+		await hashClients(clientes, clientsData);
 	})
 	.catch((e) => console.log('connection failed', e));
