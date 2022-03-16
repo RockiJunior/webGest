@@ -13,3 +13,14 @@ copy clientes from 'C:\Users\GABRIEL\Desktop\Carpeta Personal\proyectosHDC\webGe
 
 
 
+// .then(() => {
+
+		// conn
+		// 	.query(
+		// 		"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
+		// 	)
+		// 	.then(() => {
+		// 		console.log('client data upload successfully');
+		// 	})
+		// 	.catch((err) => console.log(err));
+		//aqui debe cargarse la informacion de los clientes, productos, etc. pasados al .csv

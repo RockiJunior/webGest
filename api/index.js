@@ -13,33 +13,23 @@ const { hashClients } = require('./src/utils/mocks/clients/hashClients.js');
 
 conn
 	.sync({
-		force: false
+		force: true
 	})
-	.then(async () => {
-		try {
-			const clients = await clientes.findAll();
-			if (clients.length > 0) {
-				setTimeout(() => {
-					server.listen(port, () => {
-						console.log('DB connected!!!');
-						console.log(`Server is running on port ${port}`);
-					});
-				}, 1000);
-			} else {
-				//aqui debe cargarse la informacion de los clientes, productos, etc. pasados al .csv
-				conn
-					.query(
-						"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
-					)
-					.then(() => console.log('client data upload successfully'));
-				await createMockUps(condIva, ivaCondData);
-				await hashClients(clientes, clientsData);
-			}
-		} catch (error) {
-			res.status(500).json({
-				message: 'Error al obtener los clientes',
-				error
-			});
+	.then(async() => {
+		const allClients = await clientes.findAll();
+		if (allClients.length === 0) {
+			await createMockUps(condIva, ivaCondData);
+			await hashClients(clientes, clientsData)
+			console.log('MockUp Data Uploaded!')
+			await conn.query(
+				"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
+			).then(() => {
+				console.log('client data upload successfully');
+			}).catch((err) => console.log(err));
 		}
+		server.listen(port, () => {
+			console.log('DB connected!!!');
+			console.log(`Server is running on port ${port}`)
+		})
 	})
 	.catch((e) => console.log('connection failed', e));

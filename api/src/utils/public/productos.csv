@@ -1,2 +1,2 @@
 id,nombre,clave,direccion,codPostal,telefono,email,cuit,dni,saldo,nroIngresosBrutos,CtaCte,listaDePrecios,permisos,createdAt,updatedAt,condIva
-12,prueba4,321654asd,La Plata 1564,5900,3472552354,gabrielvillarroel_11@hotmail.com,20371274198,37127419,45000,123,true,123,admin,2022-03-08T21:38:34.192Z,2022-03-08T21:38:34.192Z,
+12,prueba4,321654asd,La Plata 1564,5900,3472552354,gabrielvillarroel_11@hotmail.com,20371274198,37127419,45000,123,true,123,admin,2022-03-08T21:38:34.192Z,2022-03-08T21:38:34.192Z,1
