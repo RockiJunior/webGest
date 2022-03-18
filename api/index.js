@@ -15,21 +15,26 @@ conn
 	.sync({
 		force: true
 	})
-	.then(async() => {
+	.then(async () => {
 		const allClients = await clientes.findAll();
 		if (allClients.length === 0) {
-			await createMockUps(condIva, ivaCondData);
-			await hashClients(clientes, clientsData)
-			console.log('MockUp Data Uploaded!')
-			await conn.query(
-				"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
-			).then(() => {
-				console.log('client data upload successfully');
-			}).catch((err) => console.log(err));
+			setTimeout(async () => {
+				await createMockUps(condIva, ivaCondData);
+				await hashClients(clientes, clientsData);
+				console.log('MockUp Data Uploaded!');
+				await conn
+					.query(
+						"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
+					)
+					.then(() => {
+						console.log('client data upload successfully');
+					})
+					.catch((err) => console.log(err));
+			}, 1);
 		}
 		server.listen(port, () => {
 			console.log('DB connected!!!');
-			console.log(`Server is running on port ${port}`)
-		})
+			console.log(`Server is running on port ${port}`);
+		});
 	})
 	.catch((e) => console.log('connection failed', e));
