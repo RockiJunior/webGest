@@ -1,7 +1,6 @@
-function elevar(num, exponent) {
-	// Devuelve el valor de "num" elevado al exponente dado en "exponent"
-	// Tu código:
+function combinarNombres(nombre, apellido) {
+	// Devuelve "nombre" y "apellido" combinados en una string y separados por un espacio.
 
- console.log(Math.pow(num, exponent));
+	return `${nombre} ${apellido}`;
+
 }
-elevar(2, 3);

@@ -1,11 +1,11 @@
 // Libraries
 import React from 'react';
-import './SignUp';
 // Components & styles
 import rocketImg from '../../../assets/rocket.png';
 import SignUpFormik from './SignUpFormik.jsx';
 
 const SignUp = () => {
+	
 	return (
 		<div>
 			<div className="container mt-3">
