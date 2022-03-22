@@ -15,11 +15,11 @@ export const getClients = () => {
 		}
 	};
 };
-
 export const getClientById = (id) => {
 	return async (dispatch) => {
 		try {
 			const { data } = await axios.get(`/clients/${id}`);
+			console.log(data, 'SOY EL GET CLIENT BY IDDDDDDDDDDDDD');
 			return await dispatch({
 				type: GET_CLIENT_BY_ID,
 				payload: data
@@ -28,12 +28,10 @@ export const getClientById = (id) => {
 			console.log(err);
 		}
 	};
-}
-
-
-export const createClient = (payload) => {
+};
+export const createClient = async (payload) => {
 	try {
-		const { data } = axios.post(`/clients/createClient`, payload);
+		const { data } = await axios.post(`/clients/createClient`, payload);
 		return data;
 	} catch (err) {
 		console.log(err);

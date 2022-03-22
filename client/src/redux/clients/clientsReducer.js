@@ -6,7 +6,6 @@ export const initialState = {
 };
 
 const clientsReducer = (state = initialState, action) => {
-	
 	switch (action.type) {
 		case GET_CLIENTS: {
 			return {

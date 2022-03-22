@@ -3,11 +3,13 @@ const server = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const corsc = require('cors');
+const cors = require('./config/cors');
 
 const routes = require('./routes');
 const { errorHandler } = require('./config/errorHandler');
-const cors = require('./config/cors');
 
+server.use(corsc());
+server.use(cors);
 server.set('view engine', 'ejs');
 server.set('views', __dirname + '/views');
 server.use(morgan('dev'));
@@ -16,8 +18,6 @@ server.use(morgan('dev'));
 server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 server.use(express.static('public'));
-server.use(corsc());
-server.use(cors);
 server.use(errorHandler);
 
 //routes

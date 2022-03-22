@@ -4,39 +4,43 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 // Components & Styles
 import TextField from './TextField';
 // actions & reducers
 import { createClient, getClientById } from '../../../redux/clients/clientsAction.js';
-
 // -------------------------------------------------
 const SignUpFormik = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const [ , setUser ] = useState({
+	const [ user, setUser ] = useState({
 		validate: '',
 		noValidate: ''
 	});
-	const [ , setSuccess ] = useState(false);
-
+	const [ success, setSuccess ] = useState(false);
+	const MySwal = withReactContent(Swal);
 	const validate = Yup.object({
 		nombre: Yup.string()
-			.max(15, 'Se admite un nombre hasta 15 caracteres')
-			.required('Ingrese un Nombre'),
+		.max(15, 'Se admite un nombre hasta 15 caracteres')
+		.required('Ingrese un Nombre'),
+		
 		apellido: Yup.string()
-			.max(25, 'Se admite un Apellido hasta 25 caracteres')
-			.required('Ingrese un Apellido'),
+		.max(25, 'Se admite un Apellido hasta 25 caracteres')
+		.required('Ingrese un Apellido'),
+		
 		email: Yup.string()
-			.email('El Email ingresado es Invalido ')
-			.required('Ingrese un Email'),
+		.email('El Email ingresado es Invalido ')
+		.required('Ingrese un Email'),
+		
 		clave: Yup.string()
-			.min(6, 'La Contraseña debe tener al menos 6 caracteres')
-			.required('Ingrese una Clave'),
+		.min(6, 'La Contraseña debe tener al menos 6 caracteres')
+		.required('Ingrese una Clave'),
+		
 		confirmarClave: Yup.string()
 			.oneOf([ Yup.ref('clave'), null ], 'Las Claves no coinciden')
 			.required('Confirme la Clave')
 	});
-
 	return (
 		<Formik
 			initialValues={{
@@ -47,33 +51,37 @@ const SignUpFormik = () => {
 				email: ''
 			}}
 			onSubmit={async (body, { resetForm }) => {
-				const resUserCreated = await createClient(body);
-				// console.log(body, 'YO SOY EL BODY');
-				console.log(resUserCreated, 'YO SOY EL RESUSERCREATEDddddddddddddddddddd');
-				if (!resUserCreated.client.clave) {
-					setUser({
-						noValidate: resUserCreated.message
-					});
-					// setTimeout(() => {
-					// 	setUser({
-					// 		noValidate: ''
-					// 	});
-					// }, 3000);
-				} else if (resUserCreated.client) {
-					dispatch(getClientById(resUserCreated.client.id));
+				const user = await createClient(body);
+				if (user.client) {
+					dispatch(getClientById(user.client.id));
 					setSuccess(true);
 					setTimeout(() => {
 						setSuccess(false);
-						navigate.push('/LogIn');
-					}, 3500);
-					resetForm();
+					}, 2000);
+				} else {
+					setUser({
+						noValidate: user.message
+					});
+					setTimeout(() => {
+						setUser({
+							noValidate: ''
+						});
+					}, 1500);
 				}
+				setTimeout(async () => {
+					await MySwal.fire({
+						title: <strong>Usuario Creado</strong>,
+						html: <i>Clikeá Ok</i>,
+						icon: 'success'
+					});
+					navigate('/LogIn', { state: { user: user.client } });
+					resetForm({});
+				}, 3000);
 			}}
 			validationSchema={validate}
 		>
 			{({ errors }) => (
 				<div>
-					{/* {console.log(errors)} */}
 					<h1 className="my-4 font-weight-bold-display-4">Registrate</h1>
 					<Form>
 						<div>
@@ -119,6 +127,10 @@ const SignUpFormik = () => {
 						<button className="btn btn-danger m-1" type="reset">
 							Borrar Formulario
 						</button>
+						<div>
+							{user && <p>{user.noValidate}</p>}
+							{success && <p>Usuario Creado Exitosamente</p>}
+						</div>
 					</Form>
 				</div>
 			)}
