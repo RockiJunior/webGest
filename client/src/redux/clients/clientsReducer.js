@@ -1,4 +1,4 @@
-import { GET_CLIENTS } from './clientsAction.js';
+import { GET_CLIENTS, GET_CLIENT_BY_ID } from './clientsAction.js';
 
 export const initialState = {
 	clients: []
@@ -12,6 +12,12 @@ const clientsReducer = (state = initialState, action) => {
 				...state,
 				clients: action.payload
 			};
+		}
+		case GET_CLIENT_BY_ID:{
+			return {
+				...state,
+				clientById: action.payload
+			}
 		}
 		default:
 			return state;

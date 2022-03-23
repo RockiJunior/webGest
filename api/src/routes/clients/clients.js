@@ -11,7 +11,7 @@ const signIn = require('../../controllers/clients/signIn.js');
 
 router.get('/', getAllClients);
 router.get('/:id', getClientById);
-router.get('/:nombre', getClientByName);
+router.get('/byName/:nombre', getClientByName);
 router.put('/updateClient/:id', modifyClientById);
 router.put('/updateClientByName/:nombre', modifyClientByName);
 

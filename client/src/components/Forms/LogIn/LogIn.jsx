@@ -1,27 +1,27 @@
+// Components & Styles
 import './LogIn.css';
-import React from 'react';
-// import { useDispatch } from 'react-redux';
-// import { Form, Field, ErrorMessage, Formik } from 'formik';
-// import { getClients } from '../../../redux/clients/clientsAction.js';
-// import { useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+// Libraries
+import {useDispatch} from 'react-redux';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {useNavigate} from 'react-router-dom';
+// Actions & reducer
+import {getClientId} from '../../../redux/clients/clientsAction.js';
+
 
 const LogIn = () => {
-	// const dispatch = useDispatch();
-	// const [ logIn, setLogIn ] = useState({
-	// 	message: '',
-	// 	state: false
-	// });
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	
+	const [logged, setLogged] = useState({
+		message: '',
+		state: false
+	});
 
-	// const [ user, setUser ] = useState();
-	// const [ mail, setMail ] = useState({
-	// 	mail: ''
-	// });
-	// const [ forgot, setForgot ] = useState({
-	// 	message: '',
-	// 	auth: false
-	// });
-	// const [ acc, setAcc ] = useState(0);
-	// const history = useNavigate();
+	const [user, setUser] = useState();
+	const [acc, setAcc] = useState(0);
+
+
 
 	return (
 		<div className="LogIn">
@@ -32,7 +32,6 @@ const LogIn = () => {
 						<div className="containerInput">
 							<input type="text" placeholder="Nombre" className="inputLogin" />
 							<input type="text" placeholder="Clave" className="inputLogin" />
-
 							<div className="containerButtons">
 								<button type="button" className="btn btn-success btn-xl m-2 w-1 custom">
 									Ingresar
