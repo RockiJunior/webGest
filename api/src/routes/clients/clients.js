@@ -7,7 +7,7 @@ const getClientByName = require('../../controllers/clients/getClientByName.js');
 const modifyClientById = require('../../controllers/clients/modifyClientById.js');
 const modifyClientByName = require('../../controllers/clients/modifyClientByName.js');
 const createClient = require('../../controllers/clients/createClient.js');
-const signIn = require('../../controllers/clients/signIn.js');
+const logIn = require('../../controllers/clients/signIn.js');
 
 router.get('/', getAllClients);
 router.get('/:id', getClientById);
@@ -18,6 +18,6 @@ router.put('/updateClientByName/:nombre', modifyClientByName);
 
 // Sign Up & Sign In
 router.post('/createClient', createClient);
-router.post('/signIn', signIn);
+router.post('/logIn', logIn);
 
 module.exports = router;

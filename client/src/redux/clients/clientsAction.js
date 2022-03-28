@@ -51,3 +51,16 @@ export const createClient = async (payload) => {
 		console.log(err);
 	}
 };
+export const logInClient = async (payload) => {
+	try{
+		const {data} = await axios.post(`/clients/logIn`, payload);
+		if(data.token){
+			let token = data.token;
+			localStorage.setItem('token', token);
+		}
+		return data;
+	}catch(err){
+		console.log(err);
+	}
+};
+

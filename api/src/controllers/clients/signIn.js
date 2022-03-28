@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
 const authConfing = require('../../config/auth.js');
 
-const signIn = async (req, res) => {
+const logIn = async (req, res) => {
 	const { nombre, clave } = req.body;
 
 	const user = await clientes.findOne({
@@ -11,7 +11,6 @@ const signIn = async (req, res) => {
 			nombre: nombre
 		}
 	});
-
 	try {
 		if (!user) {
 			res.json({
@@ -47,4 +46,4 @@ const signIn = async (req, res) => {
 		console.log(err);
 	}
 };
-module.exports = signIn;
+module.exports = logIn;

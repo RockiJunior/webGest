@@ -11,6 +11,7 @@ import TextField from './TextField';
 // actions & reducers
 import { createClient, getClientById } from '../../../redux/clients/clientsAction.js';
 // -------------------------------------------------
+
 const SignUpFormik = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -20,6 +21,13 @@ const SignUpFormik = () => {
 	});
 	const [ success, setSuccess ] = useState(false);
 	const MySwal = withReactContent(Swal);
+	const initialValues = {
+		nombre: '',
+		apellido: '',
+		clave: '',
+		confirmarClave: '',
+		email: ''
+	};
 	const validate = Yup.object({
 		nombre: Yup.string()
 		.max(15, 'Se admite un nombre hasta 15 caracteres')
@@ -43,13 +51,7 @@ const SignUpFormik = () => {
 	});
 	return (
 		<Formik
-			initialValues={{
-				nombre: '',
-				apellido: '',
-				clave: '',
-				confirmarClave: '',
-				email: ''
-			}}
+			initialValues={initialValues}
 			onSubmit={async (body, { resetForm }) => {
 				const user = await createClient(body);
 				if (user.client) {
