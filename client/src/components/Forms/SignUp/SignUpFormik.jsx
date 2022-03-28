@@ -30,13 +30,9 @@ const SignUpFormik = () => {
 	};
 	const validate = Yup.object({
 		nombre: Yup.string()
-		.max(15, 'Se admite un nombre hasta 15 caracteres')
-		.required('Ingrese un Nombre'),
-		
-		apellido: Yup.string()
-		.max(25, 'Se admite un Apellido hasta 25 caracteres')
-		.required('Ingrese un Apellido'),
-		
+		.max(40, 'Se admite nombre y apellido hasta 40 caracteres')
+		.required('Ingrese un Nombre, y un Apellido (coloque solo el primer nombre)'),
+
 		email: Yup.string()
 		.email('El Email ingresado es Invalido ')
 		.required('Ingrese un Email'),
@@ -87,17 +83,10 @@ const SignUpFormik = () => {
 					<h1 className="my-4 font-weight-bold-display-4">Registrate</h1>
 					<Form>
 						<div>
-							<TextField label="Nombre" name="nombre" type="text" />
+							<TextField label="Nombre y Apellido" name="nombre" type="text" />
 							<ErrorMessage
 								name="nombre"
 								component={() => <div style={{ fontSize: 12, color: 'red' }}>{errors.nombre}</div>}
-							/>
-						</div>
-						<div>
-							<TextField label="Apellido" name="apellido" type="text" />
-							<ErrorMessage
-								name="apellido"
-								component={() => <div style={{ fontSize: 12, color: 'red' }}>{errors.apellido}</div>}
 							/>
 						</div>
 						<div>

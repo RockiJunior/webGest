@@ -31,7 +31,6 @@ const LogIn = () => {
 	};
 	const MySwal = withReactContent(Swal);
 
-
 	const validationSchema = Yup.object({
 		nombre: Yup.string().required('Ingrese un Nombre'),
 		clave: Yup.string().required('Ingrese una Clave')
