@@ -19,7 +19,7 @@ const SignUpFormik = () => {
 		validate: '',
 		noValidate: ''
 	});
-	const [ success, setSuccess ] = useState(false);
+	const [ , setSuccess ] = useState(false);
 	const MySwal = withReactContent(Swal);
 	const initialValues = {
 		nombre: '',
@@ -74,7 +74,7 @@ const SignUpFormik = () => {
 					});
 					navigate('/LogIn', { state: { user: user.client } });
 					resetForm({});
-				}, 3000);
+				}, 1000);
 			}}
 			validationSchema={validate}
 		>
@@ -120,7 +120,7 @@ const SignUpFormik = () => {
 						</button>
 						<div>
 							{user && <p>{user.noValidate}</p>}
-							{success && <p>Usuario Creado Exitosamente</p>}
+							
 						</div>
 					</Form>
 				</div>

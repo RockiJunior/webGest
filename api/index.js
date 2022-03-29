@@ -1,7 +1,8 @@
 const server = require('./src/app');
 const { conn } = require('./src/db');
 const port = process.env.PORT || 3001;
-
+const bcrypt = require('bcrypt');
+const saltRounds = 12;
 // tables
 const { condIva, clientes } = require('./src/db.js');
 // Data Tables
@@ -16,25 +17,33 @@ conn
 		force: true
 	})
 	.then(async () => {
-		const allClients = await clientes.findAll();
-		if (allClients.length === 0) {
-			setTimeout(async () => {
-				await createMockUps(condIva, ivaCondData);
-				await hashClients(clientes, clientsData);
-				console.log('MockUp Data Uploaded!');
-				await conn
-					.query(
-						"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
-					)
-					.then(() => {
-						console.log('client data upload successfully');
-					})
-					.catch((err) => console.log(err));
-			}, 1);
-		}
 		server.listen(port, () => {
 			console.log('DB connected!!!');
 			console.log(`Server is running on port ${port}`);
 		});
+		let allClients = await clientes.findAll();
+		if (allClients.length === 0) {
+			await createMockUps(condIva, ivaCondData);
+			await conn
+				.query(
+					"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"
+				)
+				.then(() => {
+					console.log('client data upload successfully');
+				})
+				.catch((err) => console.log(err));
+
+			allClients = await clientes.findAll();
+
+			for (let el of allClients) {
+				el.clave = await bcrypt.hash(el.clave, saltRounds);
+				el.save();
+			}
+			console.log('all Clients passwords hashed');
+			setTimeout(async () => {
+				await hashClients(clientes, clientsData);
+				console.log('MockUp Data Uploaded!');
+			}, 1000);
+		}
 	})
 	.catch((e) => console.log('connection failed', e));
