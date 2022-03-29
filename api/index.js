@@ -4,10 +4,11 @@ const port = process.env.PORT || 3001;
 const bcrypt = require('bcrypt');
 const saltRounds = 12;
 // tables
-const { condIva, clientes } = require('./src/db.js');
+const { condIva, clientes, productos } = require('./src/db.js');
 // Data Tables
 const { ivaCondData } = require('./src/utils/mocks/ivaCond/ivaCondMock.js');
 const { clientsData } = require('./src/utils/mocks/clients/clientsMock.js');
+const { productsData } = require('./src/utils/mocks/products/productsMock.js');
 // create MockUp Function
 const { createMockUps } = require('./src/utils/mocks/createMockUps.js');
 const { hashClients } = require('./src/utils/mocks/clients/hashClients.js');
@@ -24,6 +25,7 @@ conn
 		let allClients = await clientes.findAll();
 		if (allClients.length === 0) {
 			await createMockUps(condIva, ivaCondData);
+			await createMockUps(productos, productsData);
 			await conn
 				.query(
 					"COPY clientes from 'C:/Users/GABRIEL/Desktop/Carpeta Personal/proyectosHdc/webGest/api/src/utils/public/clientes.csv' DELIMITER ',' CSV HEADER"

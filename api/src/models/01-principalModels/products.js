@@ -13,16 +13,16 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING // varchar(255)
 			},
 			codBarra1: {
-				type: DataTypes.INTEGER // 32 bit integer
+				type: DataTypes.BIGINT // 64 bit integer
 			},
 			codBarra2: {
-				type: DataTypes.INTEGER // 32 bit integer
+				type: DataTypes.BIGINT // 64 bit integer
 			},
 			codBarra3: {
-				type: DataTypes.INTEGER // 32 bit integer
+				type: DataTypes.BIGINT // 64 bit integer
 			},
 			codBarra4: {
-				type: DataTypes.INTEGER // 32 bit integer
+				type: DataTypes.BIGINT // 64 bit integer
 			}
 		},
 		{
