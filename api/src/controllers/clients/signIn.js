@@ -32,6 +32,7 @@ const logIn = async (req, res) => {
 					auth: true,
 					id: user.id,
 					nombre: user.nombre,
+					permisos: user.permisos,
 					token: token
 				});
 			} else {

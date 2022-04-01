@@ -6,6 +6,7 @@ import store from './redux/store';
 import axios from 'axios';
 import './index.css';
 import App from './App';
+import Navbar from './components/Navbar/Navbar.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 axios.defaults.baseURL = 'http://localhost:3001/api';
@@ -13,9 +14,8 @@ axios.defaults.baseURL = 'http://localhost:3001/api';
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
-			<React.StrictMode>
+				<Navbar/>
 				<App />
-			</React.StrictMode>
 		</BrowserRouter>
 	</Provider>,
 	document.getElementById('root')

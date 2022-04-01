@@ -1,9 +1,10 @@
 import React from 'react';
+import Tab from '../Tabs/Tab.jsx'
 
 const Home = () => {
   return (
     <div>
-        HOLA SOY EL HOME
+        <Tab/>
     </div>
   );
 };

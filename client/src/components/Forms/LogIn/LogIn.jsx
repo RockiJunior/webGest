@@ -72,7 +72,8 @@ const LogIn = () => {
 			});
 			localStorage.setItem('userId', u.id);
 			localStorage.setItem('token',u.token);
-			navigate('/');
+			localStorage.setItem('permission', u.permisos);
+			navigate('/home');
 		}
 	};
 
