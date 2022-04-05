@@ -17,6 +17,9 @@ const psicoModel = require('./models/02-productSubTables/psycho.js');
 // Client Subtables...
 const condIvaModel = require('./models/03-clientsSubTables/ivaCond.js');
 
+//Tabs SubTables...
+const tabModel = require('./models/01-principalModels/tabs.js');
+
 const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST } = process.env;
 
 const sequelize =
@@ -62,6 +65,9 @@ psicoModel(sequelize);
 //clients subtables...
 condIvaModel(sequelize);
 
+//tabs subtables...
+tabModel(sequelize);
+
 const {
 	productos,
 	clientes,
@@ -72,7 +78,7 @@ const {
 	laboratorio,
 	monodroga,
 	psico,
-	condIva
+	condIva,
 } = sequelize.models;
 
 // ------ Producto ------ //
