@@ -1,0 +1,15 @@
+14 tablas:
+- codigo(numerico)
+- nombre(caracter)
+- precio(decimal 12.3)
+- stock (numerico)
+- filtro1(numerico) - Diferentes tipos de valores
+- filtro2(numerico) - 
+- filtro3(numerico) - 
+- filtro4(numerico) - 
+- filtro5(numerico) - 
+- nombreFiltro1(caracter)
+- nombreFiltro2(caracter)
+- nombreFiltro3(caracter)
+- nombreFiltro4(caracter)
+- nombreFiltro5(caracter)
