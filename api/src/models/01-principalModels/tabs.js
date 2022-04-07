@@ -1,342 +1,53 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  return (
-    sequelize.define(
-      "tab1",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+  for (let i = 1; i <= 14; i++) {
+    sequelize.define(`tab${i}`, {
+      codigo: {
+        type: DataTypes.INTEGER,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab2",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      nombre: {
+        type: DataTypes.STRING,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab3",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      precio: {
+        type: DataTypes.DECIMAL(12, 3),
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab4",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      stock: {
+        type: DataTypes.INTEGER,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab5",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      filtro1: {
+        type: DataTypes.INTEGER,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab6",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      filtro2: {
+        type: DataTypes.INTEGER,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab7",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      filtro3: {
+        type: DataTypes.INTEGER,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab8",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      filtro4: {
+        type: DataTypes.INTEGER,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab9",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      filtro5: {
+        type: DataTypes.INTEGER,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab10",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      nombreFiltro1: {
+        type: DataTypes.STRING,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab11",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      nombreFiltro2: {
+        type: DataTypes.STRING,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab12",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      nombreFiltro3: {
+        type: DataTypes.STRING,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab13",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
+      nombreFiltro4: {
+        type: DataTypes.STRING,
       },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    ),
-    sequelize.define(
-      "tab14",
-      {
-        codigo: {
-          type: DataTypes.BIGINT,
-        },
-        nombre: {
-          type: DataTypes.STRING, // varchar(255)
-        },
-        cantidad: {
-          type: DataTypes.BIGINT,
-        },
-        precioUnitario: {
-          type: DataTypes.DECIMAL(10, 2),
-        },
-        total: {
-          type: DataTypes.DECIMAL(10, 2), // varchar(255)
-        },
-      },
-      {
-        timestamps: false,
-        freezeTableName: true,
-      }
-    )
-  );
+      nombreFiltro5: {
+        type: DataTypes.STRING,
+      }, 
+    }, {
+      timestamps: false,
+      freezeTableName: true,
+    });
+  }
 };
