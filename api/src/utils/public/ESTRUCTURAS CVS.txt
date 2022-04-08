@@ -13,3 +13,15 @@
 - nombreFiltro3(caracter)
 - nombreFiltro4(caracter)
 - nombreFiltro5(caracter)
+
+- Yo no hubiese creado 14 tablas. Ahora los controladores tienen cien lineas de codigo. 
+yo hubiese creado una tabla rubro, donde se puedan crear rubros de forma fija atravez de un panel de administracion.
+esa tabla tiene el id del rubro y esta directamente relacionada con los productos. 
+entonces cuando se cargan los productos, se le debe poner a que rubro pertenece..
+esto permitiria filtrar a traves de 1 numero de rubro, y no a traves de 5 filtros diferentes....Y SEPARAR
+LOS NOMBRES DE LOS FILTROS? para utilizar CLAVE VALOR???????! NO. NO y punto. 
+
+ordenes de jefes. nada mas. la estructura de visualfoxpro9 no se basa en nada a un formato relacional sql con un
+ORM de base de datos.  
+
+
